@@ -1,0 +1,12 @@
+/** colores */
+$dark-green-title: #025157;
+$dark-green-text: #135359;
+$white: #ffffff;
+
+/** fuentes */
+$font-title: "Alegreya", sans-serif;
+
+%base-title {
+    font-family: $font-title;
+    color: $dark-green-title;
+}

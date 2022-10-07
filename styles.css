@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@600&display=swap');
+
+body {
+    background-color: #fffbf7;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Alegreya", sans-serif;
+}
+
+h1 {
+    color: #025157;
+    font-size: 45px;
+}
+
+h4 {
+    color: #46484c;
+}
+
+p {
+    color: #8b8b8bcc;
+    font-family: verdana;
+    font-size: 20px;
+}
+
+button {
+    color: #fff;
+    background-color: #025157;
+    border-radius: 4px;
+    padding: 12px 14px;
+}
+
+header {
+    margin: 0px 0px 40px;
+    padding: 0px 20px;
+    font-size: 0px;
+    position: fixed;
+    top: 0;
+    width: 100wh;
+    background-color: #fffbf7;
+    box-shadow: 0px 16px rgba(0, 0, 0, 0.5);
+}
+
+li {
+    display: inline;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.header>* {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 45px;
+    font-family: sans-serif;
+}
+
+.logo {
+    width: 15%;
+}
+
+.logo img {
+    width: 50%;
+}
+.logo2 {
+    width: 55%;
+}
+
+.logo2 img {
+    width: 70%;
+}
+
+.navbar {
+    text-align: center;
+    font-weight: 500;
+    color: #025157;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    text-align: right;
+    font-weight: 600;
+}
+
+.main {
+    margin-top: 140px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    gap: 12px;
+}
+
+.publish {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.publish h3 {
+    font-size: 40px;
+    line-height: 48px;
+    color: #025157;
+    margin: 0px;
+}
+
+.publish>p {
+    font-size: 16px;
+    color: #242424;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+
+.publish>form {
+    display: flex;
+    flex-direction: column;
+}
+
+.publish>form p {
+    color: #025157;
+    margin-right: 18px;
+}
+
+.explanatory-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explanatory-video img {
+    height: 80px;
+    margin-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.features {
+    margin: 120px 0;
+    padding: 60px 120px;
+    background-color: #025157;
+    ;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+}
+
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 12px;
+    background-color: white;
+    padding: 36px;
+    border-radius: 12px;
+}
+
+.feature-grid .feature-details h3 {
+    font-size: 24px;
+    color: #343434;
+    font-weight: 400;
+}
+
+.feature-grid .feature-details img {
+    height: 100px;
+}
+
+.feature-grid .feature-details p {
+    font-size: 16px;
+    color: #7e7e7e;
+    font-weight: 400;
+}
+
+.feature-grid .feature-details a {
+    color: #67b54b;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.success-stories {
+    background-color: #A1D683;
+    padding: 5% 15%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.success-stories .overview {
+    flex: 2;
+}
+
+.success-stories .overview h2 {
+    font-size: 48px;
+    line-height: 54px;
+    color: #925157;
+}
+
+.success-stories .overview p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #343434;
+}
+
+.success-stories .overview button {
+    font-size: 14px;
+    padding: 12px 12px 6px 12px;
+    border-radius: 8px;
+    height: 45px;
+    font-weight: 600;
+    margin-left: 0;
+}
+
+.success-stories .overview img {
+    width: 500px;
+    max-width: 100%;
+}
+
+.success-stories .stories-carousel {
+    flex: 1;
+}
+
+/* Cambiamos el alto mínimo de la tarjeta, para que se vea bien en responsive */
+.success-stories .card {
+    max-width: 370px;
+    width: 100%;
+    min-height: 600px;
+    margin: 0 auto;
+}
+
+/* Con object-fit, hacemos que la imagen se ajuste a la medida de su contenedor y limitamos su alto */
+.success-stories .card img {
+    max-height: 30vh;
+    object-fit: cover;
+}
+
+/* Agregamos position: relative para recibir un elemento con position:absolute más adelante */
+.success-stories .card .card-body {
+    max-width: 370px;
+    width: 100%;
+    position: relative;
+    padding: 40px 1rem 1rem;
+}
+
+/* Estos son los estilos para textos y acomodo de elementos */
+.success-stories .card .card-body h4 {
+    color: #025157;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 12px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.success-stories .card .card-body h3 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.success-stories .card .card-body .results {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.success-stories .card .card-body .results img {
+    width: 26px;
+}
+
+.success-stories .card .card-body .results p {
+    margin: 0;
+}
+
+.success-stories .card .card-footer button {
+    display: block;
+    margin-left: 0;
+    border-radius: 5px;
+    font-size: 13;
+    font-weight: 600;
+    padding: 12px 20px;
+    width: 100%;
+    background-color: #025157;
+    color: #fff;
+    border: none;
+}
+
+.success-stories .card .card-footer {
+    background-color: #ffffff;
+    color: #fff;
+    border: none;
+}
+
+/* Aqui hacemos un círculo con CSS! Este se posicionará en el margen superior de .card-body */
+.success-stories .card .card-body .card-circle {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -45px;
+    right: 20px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* Cada círculo tiene su propio color. Verifica qué significa este selector: .card-circle.everly */
+.success-stories .card .card-body .card-circle.everly {
+    background-color: #f9da73;
+    border: 5px solid #f9da73;
+}
+
+/* Los círculos deben recibir la imagen y ajustarla al tamaño */
+.success-stories .card .card-body .card-circle.everly img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.carousel-indicators {
+    bottom: -45px;
+}
+
+@media (max-width: 575px) {
+    /* .navbar, .actions {
+        display: none;
+    } */
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .main {
+        margin-top: 80px;
+    }
+
+    .main img {
+        width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .explanatory-video,
+    .publish {
+        width: 90%;
+    }
+
+    .explanatory-video video {
+        width: 100%;
+    }
+
+    .publish h3 {
+        font-size: 25px;
+    }
+
+    .publish p {
+        line-height: 24px;
+    }
+
+    .publish-actions {
+        display: grid;
+        grid-template-columns: 1fr 120px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+
+        grid-template: repeat(4, 1fr) / 1fr;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .feature>img {
+        display: none;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid>img {
+        display: none;
+    }
+}
+
+@media ((min-width: 576px) and (max-width: 767px)) {}
+
+@media ((min-width: 768px) and (max-width: 991px)) {}
+
+@media ((min-width: 992px) and (max-width: 1199px)) {}
+
+@media (min-width: 1200px) {}
+

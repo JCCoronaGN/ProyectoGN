@@ -413,3 +413,8 @@ button:hover {
 
 @media (min-width: 1200px) {}
 
+.centrar {
+    padding:10%;
+    display:flexbox;
+    
+  }

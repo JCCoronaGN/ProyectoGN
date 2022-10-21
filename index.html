@@ -40,46 +40,154 @@
     </nav>
     <!-- Aquí va el contenido de mi sitio -->
     <section class="main">
-        <h1>Pantalla de prueba para el curso de Desarrollo</h1>
-        <form>
+        <h1>Pantalla de prueba para el curso de Desarrollo, Módulo JavaScript</h1>
+        <form id="form1">
           <div class="centrar">
             <!-- Usuario -->
             <div class="form-outline mb-4">
-              <input type="email" id="form2Example1" class="form-control" />
+              <input type="text" id="formName" class="form-control" required="true"/>
+              <label class="form-label" for="form2Example1">Nombre</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="email" id="formCorreo" class="form-control" required= "true"/>
               <label class="form-label" for="form2Example1">Correo Electrónico</label>
             </div>
           
-            <!-- Password -->
+            <!-- Edad -->
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example2" class="form-control" />
-              <label class="form-label" for="form2Example2">Contraseña</label>
+              <input type="number" id="formEdad" class="form-control" required="true"/>
+              <label class="form-label" for="form2Example2">Edad</label>
             </div>
           
             <div class="row mb-4">
               <div class="col d-flex justify-content-center">
                 <!-- Checkbox -->
-                <div class="form-check">
+                <!-- <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
                   <label class="form-check-label" for="form2Example31"> Recordarme </label>
                 </div>
-              </div>
+              </div> -->
           
-              <div class="col">
+              <!-- <div class="col">
                 <a href="#!">Olvidaste tu contraseña?</a>
               </div>
-            </div>
+            </div> -->
           
             <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-4">Entrar</button>
+            <button type="submit" class="btn btn-primary btn-block mb-4" id="btnSubir">Subir</button>
           
-            <div class="text-center">
+            <!-- <div class="text-center">
               <p>No estas registrado? <a href="#!">Registrate</a></p>
-            </div>
+            </div> -->
           </div>
-          </form>
-    </section>
+        </form>
+        <div id="mountains" class="row d-flex justify-content-center">
+
+        </div>
+  </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <script>
+      var titleTable =["Renglon","Nombre","Edad","Correo","",""];
+      var data=[];
+      buildTable(titleTable,data);
+      function buildTable(titleTable,data){
+        var tableBorrar = document.getElementById("miTabla");
+        if(tableBorrar!== null){
+          document
+            .getElementById("mountains")
+            .removeChild(tableBorrar);
+        }
+        var table = document.createElement("table");
+        table.className = "miTabla";
+        table.id = "miTabla";
+        var tHead = document.createElement("thead");
+        var headRow = document.createElement("tr");
+        for(var i = 0; i < titleTable.length; i++) {
+          var headCell = document.createElement("th");
+          var textCell = document.createTextNode(titleTable[i]);
+          headCell.appendChild(textCell);
+          headRow.appendChild(headCell);
+        }
+        tHead.appendChild(headRow);
+        table.appendChild(tHead);
+        var tBody = document.createElement("tbody");
+        table.appendChild(tBody);
+        for(var i = 0; i < data.length; i++) {
+          var tRow = document.createElement("tr");
+          for (var j = 0; j < titleTable.length; j++) {
+              var tCell = document.createElement("td");
+              if(j==4){
+                var button = document.createElement("button");
+                var numberButton = i+1;
+                button.innerText ="Borrar";
+                button.id = "btnBorrar"+numberButton;
+                button.type = "text";
+                button.className ="btn btn-primary btn-block mb-4";
+                button.addEventListener("click",function(event){
+                  event.preventDefault();
+                  renglonBorrar =Number( this.id.slice(9));
+                  data2 = data.splice(renglonBorrar-1,1);
+                  renumerarRenglon(data);
+                  buildTable(titleTable,data);
+                })
+                tCell.appendChild(button);
+              }else if (j==5){
+                var numberButton = i+1;
+                var button = document.createElement("button");
+                button.innerText ="Editar";
+                button.id = "btnEditar"+numberButton;
+                button.type = "text";
+                button.className ="btn btn-primary btn-block mb-4";
+                button.addEventListener("click",function(event){
+                  event.preventDefault();
+                  //document.getElementById("formName").value = data[i][titleTable]
+                  //console.log(data[i][titleTable][j]);
+                  renglonBorrar =Number( this.id.slice(9));
+                  data2 = data.splice(renglonBorrar-1,1);
+                  renumerarRenglon(data);
+                  buildTable(titleTable,data);
+                })
+
+                tCell.appendChild(button);
+              } else {
+                tCell.appendChild(document.createTextNode(data[i][titleTable[j]])); 
+              }
+              tRow.appendChild(tCell);
+          }
+          tBody.appendChild(tRow);
+        }
+        document
+          .getElementById("mountains")
+          .appendChild(table);
+      }
+
+      var btnSubir = document.getElementById("form1");
+      btnSubir.addEventListener("submit",function(event){
+        event.preventDefault();
+        var renglon = {
+          "Nombre":document.getElementById("formName").value,
+          "Edad":document.getElementById("formEdad").value,
+          "Correo":document.getElementById("formCorreo").value}
+        data.push(renglon);
+        renumerarRenglon(data);
+        buildTable(titleTable,data);
+        document.getElementById("formName").value="";
+        document.getElementById("formEdad").value="";
+        document.getElementById("formCorreo").value="";
+
+      })
+      function renumerarRenglon(data){
+        for(var i = 0; i < data.length; i++) {
+          for (var j = 0; j < titleTable.length; j++) {
+            data[i][titleTable[0]]=i+1;
+          }
+        }
+
+      }
+
+    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import './styles.css'
+import "./styles.css";
 
 let titleTable =["Renglon","Nombre","Edad","Correo","Github","",""];
 let data=[];
